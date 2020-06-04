@@ -1,0 +1,16 @@
+steps:
+  - id: 'Executando go install'
+    name: 'gcr.io/cloud-builders/go'
+    args: ['install', 'goServer/src/*.go']
+  
+  - id: 'Executando go unit test'
+    name: 'grc.io/cloud-builders/go'
+    args: ['test', 'goServer/src/*.go']
+    env: ['PROJECT_ROOT=goServer']
+
+  - id: "Gerando o build da aplicação"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '--tag=grc.io/$PROJECT_ID/go-server', 'goServer/']
+
+images:
+  - 'grc.io/$PROJECT_ID/go-server'
