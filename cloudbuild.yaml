@@ -11,7 +11,8 @@ steps:
 
   - id: "Gerando o build da aplicação"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=grc.io/$PROJECT_ID/go-server', '.']
+    args: ['ls -la']
+    # args: ['build', '--tag=grc.io/$PROJECT_ID/go-server', '.']
 
 images:
   - 'grc.io/$PROJECT_ID/go-server'
