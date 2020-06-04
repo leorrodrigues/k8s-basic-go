@@ -15,7 +15,7 @@ steps:
 
   - id: "Executando o push da imagem"
     name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/go-server']
+    args: ['push', 'grc.io/$PROJECT_ID/go-server']
 
 
 images:
