@@ -1,4 +1,4 @@
-FROM golang:1.13 AS builder
+FROM gcr.io/cloud-builders/go AS builder
 
 WORKDIR /go/src/server
 COPY src/*.go /go/src/server/
