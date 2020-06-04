@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: nginx-conf
+data:
+  index.html: |
+    <!doctype html>
+    <html>
+      <head>
+        <title>Code Education - Nginx</title>
+        <meta charset="utf-8" />
+      </head>
+      <body>
+        <h1>
+          Code.education Rocks.
+        </h1>
+      </body>
+    </html>
+  
