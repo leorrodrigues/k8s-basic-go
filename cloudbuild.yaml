@@ -13,9 +13,25 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['build', '--tag=gcr.io/$PROJECT_ID/go-server', 'goServer']
 
-  - id: "Executando o push da imagem"
+  - id: "Executando o push da imagem no GCR"
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/go-server']
+
+  - id: "Coletando o secret do DockerHub"
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: 'bash'
+    args: [ '-c', 'gcloud secrets versions access latest --secret=dockerhub > decrypted-data.txt' ]
+
+
+  - id: "Fazendo login no DockerHub"
+    name: "gcr.io/cloud-builders/docker"
+    entrypoint: "bash"
+    args: ["-c", "docker login --username=leorrodrigues --password-stdin < decrypted-data.txt"]
+    secretEnv: ["dockerhub"]
+
+  - id: "Executando o push da imagem no DockerHub"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'leorrodrigues/go-server']
 
 
 images:
