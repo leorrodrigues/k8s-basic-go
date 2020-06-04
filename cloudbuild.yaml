@@ -1,7 +1,7 @@
 steps:
   - id: 'Executando go install'
     name: 'gcr.io/cloud-builders/go'
-    args: ['install', '.']
+    args: ['ls -la', 'install', '.']
     env: ['PROJECT_ROOT=goServer']
 
   - id: 'Executando go unit test'
