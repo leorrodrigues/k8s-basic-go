@@ -1,13 +1,13 @@
 steps:
   - id: 'Executando go install'
     name: 'gcr.io/cloud-builders/go'
-    args: ['ls -la', 'install', '.']
-    env: ['PROJECT_ROOT=goServer']
+    args: ['install', '.']
+    env: ['PROJECT_ROOT=./goServer/']
 
   - id: 'Executando go unit test'
     name: 'gcr.io/cloud-builders/go'
     args: ['test', '.']
-    env: ['PROJECT_ROOT=goServer']
+    env: ['PROJECT_ROOT=./goServer/']
 
   - id: "Gerando o build da aplicação"
     name: 'gcr.io/cloud-builders/docker'
