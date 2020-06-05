@@ -29,8 +29,7 @@ steps:
 secrets:
 - kmsKeyName: projects/iniciando-ci/locations/global/keyRings/fullcycle/cryptoKeys/dockerhub-secret
   secretEnv:
-    PASSWORD: 'CiQANp9r3Xas+iPxHm5TtWiy1rKNjr1Rh8pVQ8EDt2l7l5oyZXESOQBo6N+Gyw8oxvGFSkFId8ZZ
-OyUtw69iXrOf9UD7j55U1euuiiSRDXqpVa3QdHogLG+7w0N2h4++yA=='
+    PASSWORD: 'CiQANp9r3Xas+iPxHm5TtWiy1rKNjr1Rh8pVQ8EDt2l7l5oyZXESOQBo6N+Gyw8oxvGFSkFId8ZZ'
 
 images:
   - 'gcr.io/$PROJECT_ID/go-server'
