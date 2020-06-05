@@ -9,9 +9,14 @@ steps:
     args: ['test', '-v', './...']
     env: ['PROJECT_ROOT=goServer']
 
-  - id: "Gerando o build da aplicação"
+  - id: "Gerando o build da aplicação para GCP"
     name: 'gcr.io/cloud-builders/docker'
     args: ['build', '--tag=gcr.io/$PROJECT_ID/go-server', 'goServer']
+
+  - id: "Gerando a tag da aplicação para DockerHub"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/$PROJECT_ID/go-server', 'leorrodrigues/go-server']
+
 
   - id: "Executando o push da imagem no GCR"
     name: 'gcr.io/cloud-builders/docker'
