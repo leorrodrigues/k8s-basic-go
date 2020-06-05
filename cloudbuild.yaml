@@ -26,10 +26,10 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'leorrodrigues/go-server']
   
-    secrets:
-    - kmsKeyName: projects/$PROJECT_ID/locations/global/keyRings/fullcycle/cryptoKeys/dockerhub
-      secretEnv:
-        PASSWORD: 'CiQAu0jauYfkaASTudQCMRCKdHlC3aR5eeMcaZmg04lquTu1R7wSNQDneaj3lVFEWvB96xHW9MDM'
+secrets:
+- kmsKeyName: projects/$PROJECT_ID/locations/global/keyRings/fullcycle/cryptoKeys/dockerhub
+  secretEnv:
+    PASSWORD: 'CiQAu0jauYfkaASTudQCMRCKdHlC3aR5eeMcaZmg04lquTu1R7wSNQDneaj3lVFEWvB96xHW9MDM'
 
 images:
   - 'gcr.io/$PROJECT_ID/go-server'
